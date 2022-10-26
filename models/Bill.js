@@ -3,10 +3,10 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
 
-class Product extends Model {}
+class Bill extends Model {}
 
 
-Product.init(
+Bill.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -14,23 +14,22 @@ Product.init(
       primaryKey: true,
       autoIncrement: true
     },
-    product_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    price: {
-      type: DataTypes.DECIMAL(10,3),
+    amount: {
+      type: DataTypes.DECIMAL,
       allowNull: false,
       validate: {
         isDecimal: true
       }
     },
-    stock: {
+    user_id: {
       type: DataTypes.INTEGER,
-      defaultValue: 10,
-      allowNull: false,
-      validate: {
-        isNumeric: true
+      references: {
+        model: 'user',
+        key: 'id'
       }
     },
     category_id: {
@@ -47,8 +46,8 @@ Product.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product',
+    modelName: 'bill',
   }
 );
 
-module.exports = Product;
+module.exports = Bill;
