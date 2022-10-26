@@ -1,11 +1,10 @@
 const router = require('express').Router();
-const categoryRoutes = require('./category_routes');
-const incomeRoutes = require('./income_routes');
-const billRoutes = require('./bill_routes');
-const userRoutes = require('./user_routes');
+const apiRoutes = require('./api');
 
-router.use('/categories', categoryRoutes);
-router.use('/income', incomeRoutes);
-router.use('/bills', billRoutes);
-router.use('/user', userRoutes);
+router.use('/api', apiRoutes);
+
+router.use((req, res) => {
+  res.send("<h1>Wrong Route!</h1>")
+});
+
 module.exports = router;
