@@ -19,7 +19,18 @@ Income.init(
     amount: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-    }
+    },
+    date: {
+      type: DataTypes.STRING,
+      allowNull: false
+    },
+    user_id: {
+      type: DataTypes.INTEGER,
+      references: {
+        model: 'user',
+        key: 'id'
+      }
+    },
   },
   
   {
@@ -31,4 +42,4 @@ Income.init(
   }
 );
 
-module.exports = ProductTag;
+module.exports = Income;

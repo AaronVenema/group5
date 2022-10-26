@@ -6,19 +6,19 @@ const Income = require('./Income');
 
 // A user can have many bills, bill has one user
 User.hasMany(Bill, {
-  foreignKey: ''
+  foreignKey: 'user_id'
 })
 Bill.belongsTo(User)
 
 // A user can have many incomes, income has one user
 User.hasMany(Income, {
-  foreignKey: ''
+  foreignKey: 'user_id'
 })
 Income.belongsTo(User)
 
 // A category can have many bills, bill has one category
 Category.hasMany(Bill, {
-  foreignKey: ''
+  foreignKey: 'category_id'
 })
 Bill.belongsTo(Category)
 
