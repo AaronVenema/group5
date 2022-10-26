@@ -2,9 +2,9 @@ const { Model, DataTypes } = require('sequelize');
 
 const sequelize = require('../config/connection.js');
 
-class Tag extends Model {}
+class User extends Model {}
 
-Tag.init(
+User.init(
   {
     id: {
       type: DataTypes.INTEGER,
@@ -12,9 +12,16 @@ Tag.init(
       primaryKey: true,
       autoIncrement: true
     },
-    tag_name: {
+    name: {
       type: DataTypes.STRING,
       allowNull: false,
+    },
+    password: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      validate: {
+        len: [8],
+      }
     }
   },
   
@@ -23,8 +30,8 @@ Tag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'tag',
+    modelName: 'user'
   }
 );
 
-module.exports = Tag;
+module.exports = User;
