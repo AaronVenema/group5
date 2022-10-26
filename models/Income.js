@@ -31,4 +31,4 @@ Income.init(
   }
 );
 
-module.exports = ProductTag;
+module.exports = Income;
