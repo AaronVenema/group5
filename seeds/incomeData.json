@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Amazon",
+    "amount": 2000,
+    "date": "10/1/22",
+    "user_id":1
+  },
+  {
+    "name": "Amazon",
+    "amount": 2000,
+    "date": "10/15/22",
+    "user_id":1
+  },
+  {
+    "name": "Target",
+    "amount": 1500,
+    "date": "10/1/22",
+    "user_id":2
+  },
+  {
+    "name": "Target",
+    "amount": 1500,
+    "date": "10/15/22",
+    "user_id":2
+  },
+  {
+    "name": "Kroger",
+    "amount": 1000,
+    "date": "10/1/22",
+    "user_id":3
+  },
+  {
+    "name": "Kroger",
+    "amount": 1000,
+    "date": "10/15/22",
+    "user_id":3
+  },
+  {
+    "name": "7-11",
+    "amount": 750,
+    "date": "10/1/22",
+    "user_id":4
+  },
+  {
+    "name": "7-11",
+    "amount": 750,
+    "date": "10/15/22",
+    "user_id":4
+  },
+  {
+    "name": "Government",
+    "amount": 3000,
+    "date": "10/1/22",
+    "user_id":5
+  },
+  {
+    "name": "Government",
+    "amount": 3000,
+    "date": "10/15/22",
+    "user_id":5
+  }
+]

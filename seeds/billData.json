@@ -1,0 +1,215 @@
+[
+  {
+    "name": "water",
+    "amount": 100,
+    "date": "10/1/22",
+    "user_id":1,
+    "category_id": 1
+  },
+  {
+    "name": "water",
+    "amount": 100,
+    "date": "10/1/22",
+    "user_id":2,
+    "category_id":1
+  },
+  {
+    "name": "water",
+    "amount": 100,
+    "date": "10/1/22",
+    "user_id": 3,
+    "category_id":1
+  },
+  {
+    "name": "water",
+    "amount": 100,
+    "date": "10/1/22",
+    "user_id":4,
+    "category_id":1
+  },
+  {
+    "name": "water",
+    "amount": 100,
+    "date": "10/1/22",
+    "user_id":5,
+    "category_id": 1
+  },
+  {
+    "name": "ford",
+    "amount": 300,
+    "date": "10/1/22",
+    "user_id":1,
+    "category_id": 2
+  },
+  {
+    "name": "ford",
+    "amount": 300,
+    "date": "10/1/22",
+    "user_id":2,
+    "category_id": 2
+  },
+  {
+    "name": "ford",
+    "amount": 300,
+    "date": "10/1/22",
+    "user_id":3,
+    "category_id": 2
+  },
+  {
+    "name": "ford",
+    "amount": 300,
+    "date": "10/1/22",
+    "user_id":4,
+    "category_id": 2
+  },
+  {
+    "name": "ford",
+    "amount": 300,
+    "date": "10/1/22",
+    "user_id":5,
+    "category_id": 2
+  },
+  {
+    "name": "rent",
+    "amount": 1000,
+    "date": "10/1/22",
+    "user_id":1,
+    "category_id": 3
+  },
+  {
+    "name": "rent",
+    "amount": 1000,
+    "date": "10/1/22",
+    "user_id":2,
+    "category_id": 3
+  },
+  {
+    "name": "rent",
+    "amount": 1000,
+    "date": "10/1/22",
+    "user_id":3,
+    "category_id": 3
+  },
+  {
+    "name": "rent",
+    "amount": 1000,
+    "date": "10/1/22",
+    "user_id":4,
+    "category_id": 3
+  },
+  {
+    "name": "rent",
+    "amount": 1000,
+    "date": "10/1/22",
+    "user_id":5,
+    "category_id": 3
+  },
+  {
+    "name": "dominos",
+    "amount": 80,
+    "date": "10/1/22",
+    "user_id":1,
+    "category_id": 4
+  },
+  {
+    "name": "dominos",
+    "amount": 80,
+    "date": "10/1/22",
+    "user_id":2,
+    "category_id": 4
+  },
+  {
+    "name": "dominos",
+    "amount": 80,
+    "date": "10/1/22",
+    "user_id":3,
+    "category_id": 4
+  },{
+    "name": "dominos",
+    "amount": 80,
+    "date": "10/1/22",
+    "user_id":4,
+    "category_id": 4
+  },
+  {
+    "name": "dominos",
+    "amount": 80,
+    "date": "10/1/22",
+    "user_id":5,
+    "category_id": 4
+  },
+  {
+    "name": "Wells Fargo",
+    "amount": 50,
+    "date": "10/1/22",
+    "user_id":1,
+    "category_id": 5
+  },
+  {
+    "name": "Wells Fargo",
+    "amount": 50,
+    "date": "10/1/22",
+    "user_id":2,
+    "category_id": 5
+  },
+  {
+    "name": "Wells Fargo",
+    "amount": 50,
+    "date": "10/1/22",
+    "user_id":3,
+    "category_id": 5
+  },
+  {
+    "name": "Wells Fargo",
+    "amount": 50,
+    "date": "10/1/22",
+    "user_id":4,
+    "category_id": 5
+  },
+  {
+    "name": "Wells Fargo",
+    "amount": 50,
+    "date": "10/1/22",
+    "user_id":5,
+    "category_id": 5
+  },
+  {
+    "name": "Traffic Ticket",
+    "amount": 30,
+    "date": "10/1/22",
+    "user_id":1,
+    "category_id": 6
+  },
+  {
+    "name": "Traffic Ticket",
+    "amount": 30,
+    "date": "10/1/22",
+    "user_id":2,
+    "category_id": 6
+  },
+  {
+    "name": "Traffic Ticket",
+    "amount": 30,
+    "date": "10/1/22",
+    "user_id":3,
+    "category_id": 6
+  },
+  {
+    "name": "Traffic Ticket",
+    "amount": 30,
+    "date": "10/1/22",
+    "user_id":4,
+    "category_id": 6
+  },
+  {
+    "name": "Traffic Ticket",
+    "amount": 30,
+    "date": "10/1/22",
+    "user_id":5,
+    "category_id": 6
+  }
+]
+
+
+
+
