@@ -4,7 +4,6 @@ const { Category, User, Bill } = require('../../models');
 router.get('/', async (req, res) => {
   try {
     const CategoryData = await Category.findAll({
-      include: [{ model: Bill }, { model: User }],
     });
     
     res.status(200).json(CategoryData);
@@ -16,7 +15,6 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
   try {
     const CategoryData = await Category.findByPk(req.params.id, {
-      include: [{ model: Bill }, { model: User }],
     });
 
     if (!CategoryData) {
@@ -43,8 +41,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
   try {
     const CategoryData = await Category.update({
-      id: req.params.id,
-      category_name: req.body.category_name
+      ...req.body
     },{
       where: {
         id: req.params.id
