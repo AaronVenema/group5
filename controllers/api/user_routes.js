@@ -1,4 +1,5 @@
 const router = require('express').Router();
+const bcrypt = require('bcrypt');
 const { Bill, Income, User } = require('../../models');
 
 
@@ -27,25 +28,27 @@ router.post("/login", async (req,res) => {
     if (!userData) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again." });
+        .json({ message: "Incorrect email, please try again." });
       return;
     }
 
     const validPassword = await userData.checkPassword(req.body.password);
+    console.log(`>>>validPassword is ${validPassword}`);
 
     if (!validPassword) {
       res
         .status(400)
-        .json({ message: "Incorrect email or password, please try again." });
+        .json({ message: "Incorrect password, please try again." });
       return;
     }
 
-    req.session.save(() => {
-      req.session.user_id = userData.id;
-      req.session.logged_in = true;
+    // req.session.save(() => {
+    //   req.session.user_id = userData.id;
+    //   req.session.logged_in = true;
       
-      res.json({ user: userData, message: "You are now logged in!" });
-    });
+    //   res.json({ user: userData, message: "You are now logged in!" });
+    // });
+    res.sendStatus(200);
 
   } catch (err) {
     res.status(400).json(err);
@@ -76,7 +79,7 @@ router.post('/', async (req, res) => {
 
 router.put('/:id', async (req, res) => {
   try {
-    const userData = await Tag.update(req.body,{
+    const userData = await User.update(req.body,{
       where: {
         id: req.params.id
       }
@@ -84,6 +87,7 @@ router.put('/:id', async (req, res) => {
 
     if (!userData[0]) {
       res.status(404).json({message: "Not valid user!"});
+      return;
     }
 
     res.status(200).json(userData);
