@@ -29,8 +29,6 @@ Bill.belongsTo(Category,{
   foreignKey: 'category_id'
 })
 
-
-
 module.exports = {
   User,
   Bill,
