@@ -245,7 +245,20 @@
         "directory": "types/node"
     },
     "scripts": {},
-    "dependencies": {},
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "connect-session-sequelize": "^7.1.5",
+        "dotenv": "^16.0.3",
+        "express": "^4.18.2",
+        "express-handlebars": "^6.0.6",
+        "express-session": "^1.17.3",
+        "fullcalendar": "^5.11.3",
+        "mysql2": "^2.3.3",
+        "sequelize": "^6.25.3"
+    },
     "typesPublisherContentHash": "57cfc32a2e6aa482bfd078aa0560ba17922bc022cb7b435dea5d619f183a1cb1",
-    "typeScriptVersion": "2.8"
+    "typeScriptVersion": "2.8",
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
 }
