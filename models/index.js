@@ -5,22 +5,31 @@ const Category = require('./Category');
 const Income = require('./Income');
 
 // A user can have many bills, bill has one user
-User.hasMany(Bill, {
+User.hasMany(Bill,{
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+})
+
+Bill.belongsTo(User,{
   foreignKey: 'user_id'
 })
-Bill.belongsTo(User)
 
-// A user can have many incomes, income has one user
-User.hasMany(Income, {
+User.hasMany(Income,{
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+})
+Income.belongsTo(User,{
   foreignKey: 'user_id'
 })
-Income.belongsTo(User)
 
-// A category can have many bills, bill has one category
-Category.hasMany(Bill, {
+Category.hasMany(Bill,{
   foreignKey: 'category_id'
 })
-Bill.belongsTo(Category)
+Bill.belongsTo(Category,{
+  foreignKey: 'category_id'
+})
+
+
 
 module.exports = {
   User,
