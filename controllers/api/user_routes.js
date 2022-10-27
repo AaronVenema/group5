@@ -1,6 +1,5 @@
 const router = require('express').Router();
-const { Bill, Category, Income, User } = require('../../models');
-const { tableName } = require('../../models/Product');
+const { Bill, Income, User } = require('../../models');
 
 // Might not need/want a getter for all users or might not want to pull all bills and incomes
 router.get('/', async (req, res) => {
