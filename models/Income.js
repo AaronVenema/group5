@@ -13,16 +13,12 @@ Income.init(
       autoIncrement: true,
     },
     name: {
-      tpye: DataTypes.STRING,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     amount: {
       type: DataTypes.DECIMAL,
       allowNull: false,
-    },
-    date: {
-      type: DataTypes.STRING,
-      allowNull: false
     },
     user_id: {
       type: DataTypes.INTEGER,
