@@ -4,7 +4,7 @@ const { Bill, User, Category } = require('../../models');
 router.get('/:id', async (req, res) => {
     try {
         const BillData = await Bill.findByPk(req.params.id, {
-            include: [{ model: User }, { model: Category }],
+            include: [{ model: User, attributes: ['id'] }], //{ model: Category }],
         });
 
         if (!BillData) {
@@ -21,7 +21,6 @@ router.get('/:id', async (req, res) => {
 router.post('/', async (req, res) => {
     try {
         const BillData = await Bill.create(req.body);
-
         res.status(200).json(BillData);
     } catch (err) {
         res.status(400).json(err);
@@ -31,7 +30,7 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const BillData = await Bill.update({
-            category_name: req.body.category_name
+            amount: req.body.amount
         }, {
             where: {
                 id: req.params.id
@@ -61,7 +60,7 @@ router.delete('/:id', async (req, res) => {
             return;
         }
 
-        res.status(200).json(billData);
+        res.status(200).json(BillData);
     } catch (err) {
         res.status(500).json(err);
     }
