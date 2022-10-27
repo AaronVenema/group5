@@ -246,7 +246,9 @@
     },
     "scripts": { 
     "start": "node server.js",
-    "seed": "node seeds/seed.js"},
+    "seed": "node seeds/seed.js",
+    "dev": "npx nodemon server.js"
+},
     "dependencies": {
         "bcrypt": "^5.1.0",
         "connect-session-sequelize": "^7.1.5",
