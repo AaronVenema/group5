@@ -1,18 +1,6 @@
 const router = require('express').Router();
 const { Bill, User, Category } = require('../../models');
 
-// router.get('/', async (req, res) => {
-//     try {
-//         const BillData = await Bill.findAll({
-//             include: [{ model: User }, { model: Category }],
-//         });
-
-//         res.status(200).json(BillData);
-//     } catch (err) {
-//         res.status(500).json(err);
-//     }
-// });
-
 router.get('/:id', async (req, res) => {
     try {
         const BillData = await Bill.findByPk(req.params.id, {
@@ -43,7 +31,6 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const BillData = await Bill.update({
-            id: req.params.id,
             category_name: req.body.category_name
         }, {
             where: {
@@ -79,5 +66,3 @@ router.delete('/:id', async (req, res) => {
         res.status(500).json(err);
     }
 });
-
-module.exports = router;

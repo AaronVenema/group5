@@ -1,37 +1,20 @@
-'use strict';
+const path = require('path');
+const express = require('express');
+const exphbs = require('express-handlebars');
+const hbs = exphbs.create({});
+const app = express();
+const PORT = process.env.PORT || 3001;
+const sequelize = require('./config/connection');
 
-const net = require('net');
-const EventEmitter = require('events').EventEmitter;
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
-const Connection = require('./connection');
-const ConnectionConfig = require('./connection_config');
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+app.use(express.static(path.join(__dirname, 'public')));
 
-// TODO: inherit Server from net.Server
-class Server extends EventEmitter {
-  constructor() {
-    super();
-    this.connections = [];
-    this._server = net.createServer(this._handleConnection.bind(this));
-  }
+app.use(require('./controllers/'));
 
-  _handleConnection(socket) {
-    const connectionConfig = new ConnectionConfig({
-      stream: socket,
-      isServer: true
-    });
-    const connection = new Connection({ config: connectionConfig });
-    this.emit('connection', connection);
-  }
-
-  listen(port) {
-    this._port = port;
-    this._server.listen.apply(this._server, arguments);
-    return this;
-  }
-
-  close(cb) {
-    this._server.close(cb);
-  }
-}
-
-module.exports = Server;
+sequelize.sync({ force: false }).then(() => {
+  app.listen(PORT, () => console.log('Now listening'));
+});

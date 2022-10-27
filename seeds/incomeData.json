@@ -1,0 +1,52 @@
+[
+  {
+    "name": "Amazon",
+    "amount": 2000,
+    "user_id":1
+  },
+  {
+    "name": "Amazon",
+    "amount": 2000,
+    "user_id":1
+  },
+  {
+    "name": "Target",
+    "amount": 1500,
+    "user_id":2
+  },
+  {
+    "name": "Target",
+    "amount": 1500,
+    "user_id":2
+  },
+  {
+    "name": "Kroger",
+    "amount": 1000,
+    "user_id":3
+  },
+  {
+    "name": "Kroger",
+    "amount": 1000,
+    "user_id":3
+  },
+  {
+    "name": "7-11",
+    "amount": 750,
+    "user_id":4
+  },
+  {
+    "name": "7-11",
+    "amount": 750,
+    "user_id":4
+  },
+  {
+    "name": "Government",
+    "amount": 3000,
+    "user_id":5
+  },
+  {
+    "name": "Government",
+    "amount": 3000,
+    "user_id":5
+  }
+]
