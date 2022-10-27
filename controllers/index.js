@@ -1,11 +1,6 @@
 const router = require('express').Router();
-const categoryRoutes = require('./category_routes');
-const incomeRoutes = require('./income_routes');
-const billRoutes = require('./bill_routes');
-const userRoutes = require('./user_routes');
+const api = require('./api');
 
-router.use('/categories', categoryRoutes);
-router.use('/income', incomeRoutes);
-router.use('/bills', billRoutes);
-router.use('/user', userRoutes);
+router.use('/api', api);
+
 module.exports = router;

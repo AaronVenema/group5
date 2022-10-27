@@ -1,45 +1,28 @@
 const router = require('express').Router();
-const { Tag, Product, ProductTag } = require('../../models');
+const { User } = require('../../models');
 const { tableName } = require('../../models/Product');
 
-// The `/api/tags` endpoint
+// The `/api/user` endpoint
 
-router.get('/', async (req, res) => {
-  try {
-    const TagData = await Tag.findAll({
-      include: [ {model: Product} ],
-      });
-
-    res.status(200).json(TagData);
-  } catch (err){
-    res.status(500).json(err)
-  }
-});
-
+// Send back user data
 router.get('/:id', async (req, res) => {
   try {
-    const TagData = await Tag.findByPk(req.params.id,{
-      through: [{model: ProductTag}],
-    });
-
-    if (!TagData) {
-      res.status(404).json({ message: 'No tag found with that id!' });
-      return;
-    }
-
-    res.status(200).json(TagData);
+  const userData = await User.findByPk(req.params.id)
+  res.json(userData)
   } catch (err) {
     res.status(500).json(err);
   }
 })
-  
-
 
 router.post('/', async (req, res) => {
   try {
-    const TagData = await Tag.create(req.body);
+    // req.body: {
+    //   "name": "username43",
+    //   "password": "asdf6578ad67a6s9d87f"
+    // }
+    const newUser = await User.create(req.body);
 
-    res.status(200).json(TagData);
+    res.status(200).json(newUser);
   } catch (err) {
     res.status(400).json(err);
   }
