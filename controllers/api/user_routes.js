@@ -1,18 +1,6 @@
 const router = require('express').Router();
-const { Bill, Category, Income, User } = require('../../models');
+const { Bill, Income, User } = require('../../models');
 
-// Might not need/want a getter for all users or might not want to pull all bills and incomes
-router.get('/', async (req, res) => {
-  try {
-    const userData = await User.findAll({
-      include: [ {model: Bill}, {model: Income} ],
-      });
-
-    res.status(200).json(userData);
-  } catch (err){
-    res.status(500).json(err)
-  }
-});
 
 // Might not need/want a getter for users by ID or might not want to pull all bill and icomes
 router.get('/:id', async (req, res) => {
