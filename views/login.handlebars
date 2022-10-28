@@ -1,6 +1,19 @@
-<form>
-    <label for="username-input">Username</label>
-    <input id="username-input" type="text" />
-    <label for="password-input">Password</label>
-    <input id="password-input" type="password" />
-</form>
+<div class="login-container d-block text-center p-3">
+  <div class="col-md">
+    <h2 class="jumbotron">Login</h2>
+      <form class="form login-form col col-md">
+          <div class="form-group p-2">
+              <label for="email-login"></label>
+              <input id="email-login" placeholder="email" type="text" />
+          </div>
+          <div class="form-group p-2">
+            <label for="password-login"></label>
+            <input id="password-login" placeholder="password" type="password" />
+          </div>
+          <div class="form-group p-3">
+            <button class="btn btn-dark rounded-pill" type="submitt">Login</button>
+          </div>
+      </form>
+  </div>
+</div>
+<script scr="./js/login.js"></script>
