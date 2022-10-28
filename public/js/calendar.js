@@ -5,7 +5,8 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
     selectable: true,
     dateClick: async function(date) {
         console.log(date.dateStr)
-        // generate for
+        // render form,
+        // send event to database
     },
     eventClick: async function(date) {
 

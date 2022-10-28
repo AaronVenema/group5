@@ -25,6 +25,10 @@ Bill.init(
         isDecimal: true
       }
     },
+    dateStr: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {
