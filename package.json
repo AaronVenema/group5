@@ -244,12 +244,13 @@
         "url": "https://github.com/DefinitelyTyped/DefinitelyTyped.git",
         "directory": "types/node"
     },
-    "scripts": { 
-    "start": "node server.js",
-    "seed": "node seeds/seed.js",
-    "dev": "npx nodemon server.js"
-},
+    "scripts": {
+        "start": "node server.js",
+        "seed": "node seeds/seed.js",
+        "dev": "npx nodemon server.js"
+    },
     "dependencies": {
+        "@fullcalendar/interaction": "^5.11.3",
         "bcrypt": "^5.1.0",
         "connect-session-sequelize": "^7.1.5",
         "dotenv": "^16.0.3",

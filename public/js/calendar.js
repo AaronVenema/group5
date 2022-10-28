@@ -1,12 +1,15 @@
-const { buildNavLinkAttrs } = require("fullcalendar");
-
-
-
-
 document.addEventListener('DOMContentLoaded', function() {
 var calendarEl = document.getElementById('calendar');
 var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
+    selectable: true,
+    dateClick: async function(date) {
+        console.log(date.dateStr)
+        // generate for
+    },
+    eventClick: async function(date) {
+
+    },
     events: [
             // {
             //     id:"0",
@@ -24,8 +27,6 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
         }
     ]
 });
-
-
 
 calendar.render()
 
