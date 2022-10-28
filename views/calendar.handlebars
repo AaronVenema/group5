@@ -4,19 +4,27 @@
 </head>
 <body>
 <div id="calendar"></div>
+
+<div class="row">
+    <form class="col" id="income">
+        <input name="name" type="text" placeholder="name of income..." />
+        <input name="amount" type="number" placeholder="$$$ rounded up..." />
+        <input name="dateStr" type="date" />
+        <button type="submit">Add Income</button>
+    </form>
+    <form class="col" id="expense">
+        
+    </form>
+</div>
+
 <script>
         document.addEventListener('DOMContentLoaded', function() {
 var calendarEl = document.getElementById('calendar');
 var calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     selectable: true,
-    dateClick: async function(date) {
-        console.log(date.dateStr)
-        // render form,
-        // send event to database
-    },
-    eventClick: async function(date) {
-
+    eventClick: async function(event) {
+        console.log(event.event._def) 
     },
     events: [
             // {
