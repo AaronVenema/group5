@@ -3,7 +3,7 @@ const { User, Income } = require('../../models');
 
 router.get('/:id', async (req, res) => {
     try {
-        const incomeData = await income.findByPk(req.params.id, {
+        const incomeData = await Income.findByPk(req.params.id, {
             include: [{ model: User }],
         });
 
@@ -29,7 +29,8 @@ router.post('/', async (req, res) => {
 router.put('/:id', async (req, res) => {
     try {
         const incomeData = await Income.update({
-            amount: req.body.amount
+            amount: req.body.amount,
+            name: req.body.name
         },
             {
                 where: {
