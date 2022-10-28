@@ -20,6 +20,10 @@ Income.init(
       type: DataTypes.DECIMAL,
       allowNull: false,
     },
+    dateStr: {
+      type: DataTypes.STRING(10),
+      allowNull: false
+    },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

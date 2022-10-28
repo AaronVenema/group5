@@ -3,179 +3,209 @@
     "name": "water",
     "amount": 100,
     "user_id":1,
+    "dateStr": "2022-10-30",
     "category_id": 1
   },
   {
     "name": "water",
     "amount": 100,
     "user_id":2,
+    "dateStr": "2022-10-30",
     "category_id":1
   },
   {
     "name": "water",
     "amount": 100,
     "user_id": 3,
+    "dateStr": "2022-10-30",
     "category_id":1
   },
   {
     "name": "water",
     "amount": 100,
     "user_id":4,
+    "dateStr": "2022-10-30",
     "category_id":1
   },
   {
     "name": "water",
     "amount": 100,
     "user_id":5,
+    "dateStr": "2022-10-30",
     "category_id": 1
   },
   {
     "name": "ford",
     "amount": 300,
     "user_id":1,
+    "dateStr": "2022-10-30",
     "category_id": 2
   },
   {
     "name": "ford",
     "amount": 300,
     "user_id":2,
+    "dateStr": "2022-10-30",
     "category_id": 2
   },
   {
     "name": "ford",
     "amount": 300,
     "user_id":3,
+    "dateStr": "2022-10-30",
     "category_id": 2
   },
   {
     "name": "ford",
     "amount": 300,
     "user_id":4,
+    "dateStr": "2022-10-30",
     "category_id": 2
   },
   {
     "name": "ford",
     "amount": 300,
     "user_id":5,
+    "dateStr": "2022-10-30",
     "category_id": 2
   },
   {
     "name": "rent",
     "amount": 1000,
     "user_id":1,
+    "dateStr": "2022-10-30",
     "category_id": 3
   },
   {
     "name": "rent",
     "amount": 1000,
     "user_id":2,
+    "dateStr": "2022-10-30",
     "category_id": 3
   },
   {
     "name": "rent",
     "amount": 1000,
     "user_id":3,
+    "dateStr": "2022-10-30",
     "category_id": 3
   },
   {
     "name": "rent",
     "amount": 1000,
     "user_id":4,
+    "dateStr": "2022-10-30",
     "category_id": 3
   },
   {
     "name": "rent",
     "amount": 1000,
     "user_id":5,
+    "dateStr": "2022-10-30",
     "category_id": 3
   },
   {
     "name": "dominos",
     "amount": 80,
     "user_id":1,
+    "dateStr": "2022-10-30",
     "category_id": 4
   },
   {
     "name": "dominos",
     "amount": 80,
     "user_id":2,
+    "dateStr": "2022-10-30",
     "category_id": 4
   },
   {
     "name": "dominos",
     "amount": 80,
     "user_id":3,
+    "dateStr": "2022-10-30",
     "category_id": 4
   },{
     "name": "dominos",
     "amount": 80,
     "user_id":4,
+    "dateStr": "2022-10-30",
     "category_id": 4
   },
   {
     "name": "dominos",
     "amount": 80,
     "user_id":5,
+    "dateStr": "2022-10-30",
     "category_id": 4
   },
   {
     "name": "Wells Fargo",
     "amount": 50,
     "user_id":1,
+    "dateStr": "2022-10-30",
     "category_id": 5
   },
   {
     "name": "Wells Fargo",
     "amount": 50,
     "user_id":2,
+    "dateStr": "2022-10-30",
     "category_id": 5
   },
   {
     "name": "Wells Fargo",
     "amount": 50,
     "user_id":3,
+    "dateStr": "2022-10-30",
     "category_id": 5
   },
   {
     "name": "Wells Fargo",
     "amount": 50,
     "user_id":4,
+    "dateStr": "2022-10-30",
     "category_id": 5
   },
   {
     "name": "Wells Fargo",
     "amount": 50,
     "user_id":5,
+    "dateStr": "2022-10-30",
     "category_id": 5
   },
   {
     "name": "Traffic Ticket",
     "amount": 30,
     "user_id":1,
+    "dateStr": "2022-10-30",
     "category_id": 6
   },
   {
     "name": "Traffic Ticket",
     "amount": 30,
     "user_id":2,
+    "dateStr": "2022-10-30",
     "category_id": 6
   },
   {
     "name": "Traffic Ticket",
     "amount": 30,
     "user_id":3,
+    "dateStr": "2022-10-30",
     "category_id": 6
   },
   {
     "name": "Traffic Ticket",
     "amount": 30,
     "user_id":4,
+    "dateStr": "2022-10-30",
     "category_id": 6
   },
   {
     "name": "Traffic Ticket",
     "amount": 30,
     "user_id":5,
+    "dateStr": "2022-10-30",
     "category_id": 6
   }
 ]
