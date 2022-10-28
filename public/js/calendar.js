@@ -17,10 +17,10 @@ var calendar = new FullCalendar.Calendar(calendarEl, {
             // }
         {
             id:"0",
-            title: bill.name,
-            start: bill.datecreated,
-            ammount: bill.ammount,
-            category: bill.category_id
+            title: "groceries",
+            start: "2022-10-28",
+            ammount: 150,
+            category: "food"
         }
     ]
 });
