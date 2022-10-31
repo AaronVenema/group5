@@ -14,7 +14,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-     fetch('/calendar_route')
+     fetch('/calendar_routes')
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
