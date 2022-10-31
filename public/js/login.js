@@ -1,9 +1,9 @@
-const loginFormHandler = async (event) => {
+$('#submit').on('click', async event => {
   event.preventDefault();
 
   // Collect values from the login form
-  const email = document.querySelector('#email-login').value;
-  const password = document.querySelector('#password-login').value;
+  const email = $('#email-login').val();
+  const password = $('#password-login').val();
 
   if (email && password) {
     // Send a POST request to the API endpoint
@@ -13,15 +13,12 @@ const loginFormHandler = async (event) => {
       headers: { 'Content-Type': 'application/json' },
     });
 
+    console.log(response)
+
     if (response.ok) {
-     fetch('/calendar_routes')
       document.location.replace('/dashboard');
     } else {
       alert(response.statusText);
     }
   }
-};
-
-document
-  .querySelector('.login-form')
-  .addEventListener('submit', loginFormHandler);
+})

@@ -5,8 +5,10 @@ const withAuth = require('../utils/auth')
 
 // Render calendar
 router.get('/', async (req, res) => {
+    console.log(req.session)
     try {
         const billData = await Bill.findAll({
+            // where: user_id 
             attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
         })
         const bills = billData.map(bill => bill.get({ plain: true }))
