@@ -1,6 +1,8 @@
 const router = require('express').Router();
 const { Bill, User, Category } = require('../../models');
 
+// /api/bills
+
 router.get('/:id', async (req, res) => {
     try {
         const BillData = await Bill.findByPk(req.params.id, {
