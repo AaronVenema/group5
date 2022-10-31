@@ -18,7 +18,6 @@ const signupFormHandler = async (event) => {
         });
 
         if (response.ok) {
-            fetch('/calendar_routes')
             document.location.replace('/dashboard');
         } else {
             alert(response.statusText);

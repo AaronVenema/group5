@@ -2,7 +2,7 @@ const loginHandler = (event) => {
    fetch('/login', {
     method: 'GET',
   });
-  window.location.href = ('login')
+  window.location.href = (`${document.location.origin}/login`)
   }
 
 
@@ -10,7 +10,7 @@ const signupHandler = (event) => {
    fetch('/signup', {
     method: 'GET',
   });
-  window.location.href =('signup')
+  window.location.href =(`${document.location.origin}/signup`)
   }
 
 
