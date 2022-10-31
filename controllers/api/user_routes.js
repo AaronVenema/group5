@@ -2,7 +2,6 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { Bill, Income, User } = require('../../models');
 
-
 // Might not need/want a getter for users by ID or might not want to pull all bill and icomes
 router.get('/:id', async (req, res) => {
   try {
@@ -20,6 +19,7 @@ router.get('/:id', async (req, res) => {
     res.status(500).json(err);
   }
 })
+
 
 router.post('/signup', async (req, res) => {
   try {
