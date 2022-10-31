@@ -1,6 +1,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <title>Dashboard</title>
 </head>
+
 <body>
     <h2>Adding event for {{dateStr}}</h2>
     <form id="event">
@@ -24,31 +25,31 @@
         </div>
     </form>
 
-<script>
-    let state
-$('#show-expense').on('click', e => {
-    e.preventDefault()
-    $('#expense').attr('style', 'display:block;')
-    $('#income').attr('style', 'display:none;')
-    state = 'expense'
-})
-$('#show-income').on('click', e => {
-        e.preventDefault()
-    $('#income').attr('style', 'display:block;')
-    $('#expense').attr('style', 'display:none;')
-    state = 'income'
-})
-$('#event').on('submit', e => {
-    e.preventDefault()
-    if (state === 'expense') {
-        const name = $('#exp-name').val().trim()
-        const amount = $('#exp-amount').val().trim()
-        const category = $('#category').val().trim()
-        console.log(name, amount, category)
-    } else {
-        const name = $('#inc-name').val().trim()
-        const amount = $('#inc-amount').val().trim()
-        console.log(name, amount)
-    }
-})
-</script>
+    <script>
+        let state
+        $('#show-expense').on('click', e => {
+            e.preventDefault()
+            $('#expense').attr('style', 'display:block;')
+            $('#income').attr('style', 'display:none;')
+            state = 'expense'
+        })
+        $('#show-income').on('click', e => {
+            e.preventDefault()
+            $('#income').attr('style', 'display:block;')
+            $('#expense').attr('style', 'display:none;')
+            state = 'income'
+        })
+        $('#event').on('submit', e => {
+            e.preventDefault()
+            if (state === 'expense') {
+                const name = $('#exp-name').val().trim()
+                const amount = $('#exp-amount').val().trim()
+                const category = $('#category').val().trim()
+                console.log(name, amount, category)
+            } else {
+                const name = $('#inc-name').val().trim()
+                const amount = $('#inc-amount').val().trim()
+                console.log(name, amount)
+            }
+        })
+    </script>
