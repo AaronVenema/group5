@@ -2,7 +2,6 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { Bill, Income, User } = require('../../models');
 
-
 // Might not need/want a getter for users by ID or might not want to pull all bill and icomes
 router.get('/:id', async (req, res) => {
   try {
@@ -21,6 +20,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+// interact with db given form data
 router.post("/login", async (req,res) => {
   try {
     const userData = await User.findOne({ where: { email: req.body.email } });

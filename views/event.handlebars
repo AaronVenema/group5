@@ -3,7 +3,7 @@
 </head>
 
 <body>
-    <h2>Adding event for {{dateStr}}</h2>
+    <h2>Adding event for <span id="dateStr">{{dateStr}}</span></h2>
     <form id="event">
         <div id="income">
             <input type="text" id="inc-name" placeholder="Name of income..." />
@@ -39,17 +39,52 @@
             $('#expense').attr('style', 'display:none;')
             state = 'income'
         })
-        $('#event').on('submit', e => {
+        $('#event').on('submit', async e => {
             e.preventDefault()
+            const dateStr = $('#dateStr').val()
             if (state === 'expense') {
                 const name = $('#exp-name').val().trim()
                 const amount = $('#exp-amount').val().trim()
                 const category = $('#category').val().trim()
-                console.log(name, amount, category)
+
+                if (!name || !amount || !category) {
+                    window.alert('Please fill out all fields.')
+                    return
+                }
+                // send data to db
+                await fetch(`${document.location.origin}/api/bills`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, amount, category, dateStr })
+                })
+
+                // re-render calendar
+                docuent.location.replace(`${document.location.origin}/`)
+
             } else {
                 const name = $('#inc-name').val().trim()
                 const amount = $('#inc-amount').val().trim()
                 console.log(name, amount)
+
+                if (!name || !ammount) {
+                    window.alert('Please fill out all fields.')
+                    return
+                }
+
+                await fetch(`${document.location.origin}/api/incomes`, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        name, amount, dateStr
+                    })
+                })
+
+                // re-render calendar
+                docuent.location.replace(`${document.location.origin}/`)
             }
         })
     </script>
