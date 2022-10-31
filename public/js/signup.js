@@ -2,15 +2,18 @@ const signupFormHandler = async (event) => {
     event.preventDefault();
 
     // Collect values from the signin form
-    const userName = document.querySelector('#userName-signup').value.trim();
-    const email = document.querySelector('#email-signup').value.trim();
-    const password = document.querySelector('#password-signup').value.trim();
+    const name = document.querySelector('#name').value;
+    console.log(name)
+    const email = document.querySelector('#email').value;
+    console.log(email)
+    const password = document.querySelector('#password').value;
+    console.log(password)
 
-    if (userName && email && password) {
+    if (name && email && password) {
         // Send a POST request to the API endpoint
-        const response = await fetch('/api/users/', {
+        const response = await fetch('/api/users/signup', {
             method: 'POST',
-            body: JSON.stringify({ userName, email, password }),
+            body: JSON.stringify({ name, email, password }),
             headers: { 'Content-Type': 'application/json' },
         });
 
