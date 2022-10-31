@@ -37,11 +37,11 @@
         })
         $('#event').on('submit', async e => {
             e.preventDefault()
-            const dateStr = $('#dateStr').val()
+            const dateStr = $('#dateStr').text()
             if (state === 'expense') {
                 const name = $('#exp-name').val().trim()
                 const amount = $('#exp-amount').val().trim()
-                const category = $('#category').val().trim()
+                const category = $('#category').val()
 
                 if (!name || !amount || !category) {
                     window.alert('Please fill out all fields.')
