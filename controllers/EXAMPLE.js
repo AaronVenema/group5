@@ -7,7 +7,7 @@ router.get('/login', (req, res) => {
       return;
     }
     res.render('login');
-  });
+});
 
 router.get('/signup', (req, res) => {
 if (req.session.logged_in) {
@@ -19,7 +19,7 @@ res.render('signup');
 
 // CALENDAR ROUTES
 
-router.get('/', async (req, res) => {
+router.get('/dashboard/', async (req, res) => {
     try {
         const billData = await Bill.findAll({
             attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
@@ -45,7 +45,7 @@ router.get('/', async (req, res) => {
     }
 });
 
-router.get('/event/:date', async (req, res) => {
+router.get('/dashboard/event/:date', async (req, res) => {
     try {
         const categoryData = await Category.findAll()
         const categories = categoryData.map(c => c.get({ plain: true }))
@@ -64,24 +64,8 @@ router.get('/event/:date', async (req, res) => {
 
 // USER ROUTES
 
-router.get('/:id', async (req, res) => {
-    try {
-      const userData = await User.findByPk(req.params.id,{
-        include: [{model: Bill}, {model: Income}],
-      });
   
-      if (!userData) {
-        res.status(404).json({ message: 'No user found with that ID!' });
-        return;
-      }
-  
-      res.status(200).json(userData);
-    } catch (err) {
-      res.status(500).json(err);
-    }
-  })
-  
-  router.post('/signup', async (req, res) => {
+  router.post('/api/users/signup', async (req, res) => {
     try {
       const userData = await User.create(req.body);
   
@@ -97,7 +81,7 @@ router.get('/:id', async (req, res) => {
   });
   
   
-  router.post("/login", async (req,res) => {
+  router.post("/api/users/login", async (req,res) => {
     try {
       const userData = await User.findOne({ where: { email: req.body.email } });
   
@@ -131,7 +115,7 @@ router.get('/:id', async (req, res) => {
     }
   });
   
-  router.post("/logout", async (req,res) => {
+  router.post("/api/users/logout", async (req,res) => {
     if (req.session.logged_in) {
       req.session.destroy(() => {
         res.status(204).end();
@@ -140,8 +124,9 @@ router.get('/:id', async (req, res) => {
       res.status(404).end();
     }
   });
+
   
-  router.put('/:id', async (req, res) => {
+  router.put('/api/users/:id', async (req, res) => {
     try {
       const userData = await User.update(req.body,{
         where: {
@@ -160,7 +145,7 @@ router.get('/:id', async (req, res) => {
     }
   });
   
-  router.delete('/:id', async (req, res) => {
+  router.delete('/api/users/:id', async (req, res) => {
     try {
       const userData = await User.destroy({
         where: {
@@ -178,3 +163,223 @@ router.get('/:id', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+// BILL ROUTES
+router.get('/api/bills/:id', async (req, res) => {
+  try {
+      const BillData = await Bill.findByPk(req.params.id, {
+          include: [{ model: User, attributes: ['id'] }], //{ model: Category }],
+      });
+
+      if (!BillData) {
+          res.status(404).json({ message: 'No category bill with that id!' });
+          return;
+      }
+
+      res.status(200).json(BillData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+router.post('/api/bills/', async (req, res) => {
+  try {
+      const categoryId = await Category.findOne({where:{name:req.body.category},attributes:['id']})
+      req.body.category_id = categoryId.dataValues.id
+      // req.body.user_id = req.session.user_id
+      console.log(req.body)
+      const BillData = await Bill.create(req.body);
+      res.status(200).json(BillData);
+  } catch (err) {
+      res.status(400).json(err);
+  }
+});
+
+router.put('/api/bills/:id', async (req, res) => {
+  try {
+      const BillData = await Bill.update({
+          amount: req.body.amount
+      }, {
+          where: {
+              id: req.params.id
+          }
+      })
+
+      if (!BillData[0]) {
+          res.status(404).json({ message: "Not valid Bill!" });
+      }
+
+      res.status(200).json(BillData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+router.delete('/api/bills/:id', async (req, res) => {
+  try {
+      const BillData = await Bill.destroy({
+          where: {
+              id: req.params.id,
+          },
+      });
+
+      if (!BillData) {
+          res.status(404).json({ message: 'No bill found with that id!' });
+          return;
+      }
+
+      res.status(200).json(BillData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+// CATEGORY ROUTES
+router.get('/api/categories/', async (req, res) => {
+  try {
+    const CategoryData = await Category.findAll({
+    });
+    
+    res.status(200).json(CategoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.get('/api/categories/:id', async (req, res) => {
+  try {
+    const CategoryData = await Category.findByPk(req.params.id, {
+    });
+
+    if (!CategoryData) {
+      res.status(404).json({ message: 'No category found with that id!' });
+      return;
+    }
+
+    res.status(200).json(CategoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.post('/api/categories/', async (req, res) => {
+  try {
+    const CategoryData = await Category.create(req.body);
+
+    res.status(200).json(CategoryData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
+
+router.put('/api/categories/:id', async (req, res) => {
+  try {
+    const CategoryData = await Category.update({
+      ...req.body
+    },{
+      where: {
+        id: req.params.id
+      }
+    })
+
+    if (!CategoryData[0]) {
+      res.status(404).json({message: "Not valid Category!"});
+    }
+
+    res.status(200).json(CategoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+router.delete('/api/categories/:id', async (req, res) => {
+  try {
+    const CategoryData = await Category.destroy({
+      where: {
+        id: req.params.id,
+      },
+    });
+
+    if (!CategoryData) {
+      res.status(404).json({ message: 'No categoryfound with that id!' });
+      return;
+    }
+
+    res.status(200).json(CategoryData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
+// INCOMES
+router.get('/api/incomes/:id', async (req, res) => {
+  try {
+      const incomeData = await Income.findByPk(req.params.id, {
+          include: [{ model: User }],
+      });
+
+      if (!incomeData) {
+          res.status(404).json({ message: 'No income found with that id!' });
+          return;
+      }
+      res.status(200).json(incomeData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+router.post('/api/incomes/', async (req, res) => {
+  try {
+      // req.body: {
+          // name
+          // amount
+          // dateStr
+      // }
+      // req.body.user_id = req.session.user_id
+      const incomeData = await Income.create(req.body);
+      res.status(200).json(incomeData);
+  } catch (err) {
+      res.status(400).json(err);
+  }
+});
+
+router.put('/:id', async (req, res) => {
+  try {
+      const incomeData = await Income.update({
+          amount: req.body.amount,
+          name: req.body.name
+      },
+          {
+              where: {
+                  id: req.params.id,
+              }
+          });
+
+      if (!incomeData) {
+          res.status(404).json({ message: 'No income found with that id!' });
+          return;
+      }
+      res.status(200).json(incomeData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});
+
+router.delete('/:id', async (req, res) => {
+  try {
+      const incomeData = await Income.destroy({
+          where: {
+              id: req.params.id,
+          },
+      });
+
+      if (!incomeData) {
+          res.status(404).json({ message: 'No product found with that id!' });
+          return;
+      }
+
+      res.status(200).json(incomeData);
+  } catch (err) {
+      res.status(500).json(err);
+  }
+});

@@ -3,23 +3,6 @@ const bcrypt = require('bcrypt');
 const { Bill, Income, User } = require('../../models');
 
 // Might not need/want a getter for users by ID or might not want to pull all bill and icomes
-router.get('/:id', async (req, res) => {
-  try {
-    const userData = await User.findByPk(req.params.id,{
-      include: [{model: Bill}, {model: Income}],
-    });
-
-    if (!userData) {
-      res.status(404).json({ message: 'No user found with that ID!' });
-      return;
-    }
-
-    res.status(200).json(userData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-})
-
 
 router.post('/signup', async (req, res) => {
   try {
@@ -80,7 +63,6 @@ router.post("/logout", async (req,res) => {
     res.status(404).end();
   }
 });
-
 
 
 router.put('/:id', async (req, res) => {
