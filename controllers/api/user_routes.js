@@ -20,6 +20,7 @@ router.get('/:id', async (req, res) => {
   }
 })
 
+
 router.post('/signup', async (req, res) => {
   try {
     const userData = await User.create(req.body);
