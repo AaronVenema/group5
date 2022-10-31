@@ -1,8 +1,4 @@
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<title>Dashboard</title>
-</head>
 
-<body>
     <h2>Adding event for <span id="dateStr">{{dateStr}}</span></h2>
     <form id="event">
         <div id="income">
@@ -61,14 +57,14 @@
                 })
 
                 // re-render calendar
-                docuent.location.replace(`${document.location.origin}/`)
+                document.location.replace(`${document.location.origin}/dashboard`)
 
             } else {
                 const name = $('#inc-name').val().trim()
                 const amount = $('#inc-amount').val().trim()
                 console.log(name, amount)
 
-                if (!name || !ammount) {
+                if (!name || !amount) {
                     window.alert('Please fill out all fields.')
                     return
                 }
@@ -84,7 +80,7 @@
                 })
 
                 // re-render calendar
-                docuent.location.replace(`${document.location.origin}/`)
+                document.location.replace(`${document.location.origin}/dashboard`)
             }
         })
     </script>
