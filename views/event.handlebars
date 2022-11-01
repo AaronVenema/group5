@@ -20,7 +20,6 @@
             <button type="submit">Save</button>
         </div>
     </form>
-
     <script>
         let state
         $('#show-expense').on('click', e => {
@@ -35,6 +34,9 @@
             $('#expense').attr('style', 'display:none;')
             state = 'income'
         })
+
+        
+
         $('#event').on('submit', async e => {
             e.preventDefault()
             const dateStr = $('#dateStr').text()
