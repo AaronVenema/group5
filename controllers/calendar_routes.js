@@ -8,12 +8,12 @@ router.get('/', async (req, res) => {
     console.log(req.session)
     try {
         const billData = await Bill.findAll({
-            where: {id:req.session.user_id},
+            where: {user_id:req.session.user_id},
             attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
         })
         const bills = billData.map(bill => bill.get({ plain: true }))
         const incomeData = await Income.findAll({
-            where: {id:req.session.user_id},
+            where: {user_id:req.session.user_id},
             attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
         })
         const incomes = incomeData.map(income => income.get({ plain: true }))
