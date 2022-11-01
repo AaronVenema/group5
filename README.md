@@ -1,3 +1,16 @@
+#Introduction 
+
+Welcome to Budgeteer! This app will help you organize and schedule your upcoming expenses. You can add a monthly budget for those and schedule expenses on a monthly basis and also one-time expenses. Want to join? Press on 'New User'. 
+
+#Functionality
+
+
+
+
+
+
+
+
 # Installation
 > `npm install --save @types/node`
 
