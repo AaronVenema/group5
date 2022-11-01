@@ -24,7 +24,7 @@ router.post('/', async (req, res) => {
             // amount
             // dateStr
         // }
-        // req.body.user_id = req.session.user_id
+        req.body.user_id = req.session.user_id
         const incomeData = await Income.create(req.body);
         res.status(200).json(incomeData);
     } catch (err) {
