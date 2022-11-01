@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { Category, Bill, Income } = require('../models')
+const { Category, Bill, Income, User } = require('../models')
 const withAuth = require('../utils/auth')
 // 3001/dashboard
 
@@ -23,23 +23,26 @@ router.get('/', async (req, res) => {
         bills.forEach(bill => {
             bill.backgroundColor = '#f78d46'
             bill.type = 'bill'
-            exp += bill.amount
+            exp += parseFloat(bill.amount)
             events.push(bill)
         })
         incomes.forEach(income => {
             income.backgroundColor = '#55c937'
             income.type = 'income'
-            inc += income.amount
+            inc += parseFloat(income.amount)
             events.push(income)
         })
-        const username = 'Jon'
+        const usernameData = await User.findByPk(req.session.user_id)
+        const username = usernameData.get({plain:true})
+        console.log(username)
+
         let disposableIncome = inc - exp
         // Pass serialized data and session flag into template
         res.render('calendar',
             {
                 layout: 'dashboard',
                 logged_in: req.session.logged_in,
-                username,
+                username: username.name,
                 disposableIncome,
                 user_id: req.session.user_id,
                 events: JSON.stringify(events)
