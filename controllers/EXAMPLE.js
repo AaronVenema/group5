@@ -23,16 +23,16 @@ router.get('/signup', (req, res) => {
 
 // CALENDAR ROUTES
 
-router.get('/dashboard/', async (req, res) => {
+router.get('/', async (req, res) => {
   console.log(req.session)
   try {
       const billData = await Bill.findAll({
-          where: {id:req.session.user_id},
+          where: {user_id:req.session.user_id},
           attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
       })
       const bills = billData.map(bill => bill.get({ plain: true }))
       const incomeData = await Income.findAll({
-          where: {id:req.session.user_id},
+          where: {user_id:req.session.user_id},
           attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
       })
       const incomes = incomeData.map(income => income.get({ plain: true }))
@@ -68,8 +68,9 @@ router.get('/dashboard/', async (req, res) => {
       res.status(500).json(err);
   }
 });
-s
-router.get('/dashboard/event/:date', async (req, res) => {
+
+// Render form to add income or expense
+router.get('/event/:date', async (req, res) => {
   try {
       const categoryData = await Category.findAll()
       const categories = categoryData.map(c => c.get({ plain: true }))
