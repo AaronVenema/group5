@@ -8,11 +8,12 @@ router.get('/', async (req, res) => {
     console.log(req.session)
     try {
         const billData = await Bill.findAll({
-            // where: user_id 
+            where: {id:req.session.user_id},
             attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
         })
         const bills = billData.map(bill => bill.get({ plain: true }))
         const incomeData = await Income.findAll({
+            where: {id:req.session.user_id},
             attributes: [['name', 'title'], 'amount', ['date_str', 'start']]
         })
         const incomes = incomeData.map(income => income.get({ plain: true }))
@@ -53,19 +54,10 @@ router.get('/', async (req, res) => {
 router.get('/event/:date', async (req, res) => {
     try {
         const categoryData = await Category.findAll()
-        // const billData = await Bill.findAll({
-        //     include: [
-        //         {
-        //             model: User,
-        //             where: { id: req.body.user_id }, // Once session works we'll want to use that as id instead
-        //         },
-        //     ],
-        // });
         const categories = categoryData.map(c => c.get({ plain: true }))
         console.log(categories, req.params.date)
         res.render('event', {
             categories,
-            billData,
             dateStr: req.params.date
         })
         return

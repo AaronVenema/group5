@@ -6,7 +6,6 @@ const { Bill, Income, User } = require('../../models');
 
 router.post('/signup', async (req, res) => {
   try {
-    console.log(req.session.profile);
     const userData = await User.create(req.body);
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -46,7 +45,7 @@ router.post("/login", async (req,res) => {
       req.session.logged_in = true;
     });
 
-    res.status(200).json({ user: user, message: "You are now logged in!" });;
+    res.status(200).json({ user, message: "You are now logged in!" });;
 
   } catch (err) {
     res.status(400).json(err);

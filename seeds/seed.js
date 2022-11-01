@@ -17,11 +17,11 @@ const seedDatabase = async () => {
   await Category.bulkCreate(categoryData, {
   });
  
-  Bill.bulkCreate(billData, {
-  }); 
+  // Bill.bulkCreate(billData, {
+  // }); 
   
-  Income.bulkCreate(incomeData, {
-  });
+  // Income.bulkCreate(incomeData, {
+  // });
   
 };
 seedDatabase();
