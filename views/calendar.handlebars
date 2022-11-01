@@ -1,25 +1,33 @@
 <div id="calendar" style="padding:2vh"></div>
-    <span id="events" style="display:none">{{events}}</span>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () { 
-            const events = JSON.parse($('#events').text())
-            var calendarEl = document.getElementById('calendar');
-            var calendar = new FullCalendar.Calendar(calendarEl, {
-                initialView: 'dayGridMonth',
-                selectable: true,
-                eventClick: async function (e) {
-                    console.log(e.event._def)
-                },
-                dateClick: async function (e) {
-                    // show form to add event
-                    window.location = `${document.location.origin}/dashboard/event/${e.dateStr}`
-                },
-                events: events
-            });
+<span id="events" style="display:none">{{events}}</span>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const events = JSON.parse($('#events').text())
+        var calendarEl = document.getElementById('calendar');
+        var calendar = new FullCalendar.Calendar(calendarEl, {
+            initialView: 'dayGridMonth',
+            selectable: true,
+            eventClick: async function (e) {
 
-            calendar.render()
+                const date = `${e.event._instance.range.end.getMonth()}/${e.event._instance.range.end.getDate()}/${e.event._instance.range.end.getFullYear()}`
 
+                if (e.event._def.extendedProps.type === 'bill') {
+                    window.alert(`$${e.event._def.extendedProps.amount} is due on ${date} for ${e.event._def.title}`)
+                } else {
+                   window.alert(`You're getting paid $${e.event._def.extendedProps.amount} on ${date} for ${e.event._def.title}`) 
+                }
+
+            },
+            dateClick: async function (e) {
+                // show form to add event
+                window.location = `${document.location.origin}/dashboard/event/${e.dateStr}`
+            },
+            events: events
         });
-    </script>
-    <button id="logout">Logout</button>
-    <script src="./js/logout.js"></script>
+
+        calendar.render()
+
+    });
+</script>
+<button id="logout">Logout</button>
+<script src="./js/logout.js"></script>
