@@ -1,3 +1,4 @@
+<h2>Hello, {{username}}. You have ${{disposableIncome}} to spare this month.</h2>
 <div id="calendar" style="padding:2vh"></div>
 <span id="events" style="display:none">{{events}}</span>
 <script>
@@ -8,15 +9,12 @@
             initialView: 'dayGridMonth',
             selectable: true,
             eventClick: async function (e) {
-
                 const date = `${e.event._instance.range.end.getMonth()}/${e.event._instance.range.end.getDate()}/${e.event._instance.range.end.getFullYear()}`
-
                 if (e.event._def.extendedProps.type === 'bill') {
                     window.alert(`$${e.event._def.extendedProps.amount} is due on ${date} for ${e.event._def.title}`)
                 } else {
                    window.alert(`You're getting paid $${e.event._def.extendedProps.amount} on ${date} for ${e.event._def.title}`) 
                 }
-
             },
             dateClick: async function (e) {
                 // show form to add event
@@ -24,9 +22,7 @@
             },
             events: events
         });
-
         calendar.render()
-
     });
 </script>
 <button id="logout">Logout</button>
