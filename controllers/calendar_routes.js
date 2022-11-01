@@ -17,8 +17,16 @@ router.get('/', async (req, res) => {
         })
         const incomes = incomeData.map(income => income.get({ plain: true }))
         const events = [] 
-        bills.forEach(bill => events.push(bill))
-        incomes.forEach(income => events.push(income))
+        bills.forEach(bill => {
+            bill.backgroundColor = '#f78d46'
+            bill.type = 'bill'
+            events.push(bill)
+        })
+        incomes.forEach(income => {
+            income.backgroundColor = '#55c937'
+            income.type = 'income'
+            events.push(income)
+        })
         // Pass serialized data and session flag into template
         res.render('calendar',
             {

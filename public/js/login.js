@@ -7,13 +7,11 @@ $('#submit').on('click', async event => {
 
   if (email && password) {
     // Send a POST request to the API endpoint
-    const response = await fetch('/api/users/login', {
+    const response = await fetch(`${document.location.origin}/api/users/login`, {
       method: 'POST',
       body: JSON.stringify({ email, password }),
       headers: { 'Content-Type': 'application/json' },
     });
-
-    console.log(response)
 
     if (response.ok) {
       document.location.replace('/dashboard');
